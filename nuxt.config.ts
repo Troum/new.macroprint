@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     hooks: {
         'pages:extend'(pages) {
             pages.push({
-                name: 'Главная', // Name of the route
+                name: 'Главная',
                 path: '/'
             });
         }
