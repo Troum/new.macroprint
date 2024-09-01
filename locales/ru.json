@@ -1,0 +1,31 @@
+{
+  "breadcrumbs": {
+    "production": {
+      "label": "Продукция"
+    },
+    "home": {
+      "label": "Главная"
+    },
+    "blog": {
+      "label": "Новости"
+    },
+    "about": {
+      "label": "О компании"
+    },
+    "contacts": {
+      "label": "Как нас найти"
+    },
+    "vacancies": {
+      "label": "Вакансии"
+    },
+    "for-clients": {
+      "label": "Для клиентов"
+    },
+    "requisites": {
+      "label": "Реквизиты компании"
+    },
+    "requirements": {
+      "label": "Технические требования"
+    }
+  }
+}
