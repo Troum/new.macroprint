@@ -50,6 +50,16 @@ definePageMeta({
   </div>
 </template>
 
-<style scoped>
-
+<style scoped lang="scss">
+h2 {
+  font-size: 2.25rem !important;
+}
+h3 {
+  font-size: 1.5rem !important;
+}
+.mp-about__container {
+  & img {
+    width: 50%;
+  }
+}
 </style>

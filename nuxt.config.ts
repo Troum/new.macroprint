@@ -4,6 +4,7 @@ export default defineNuxtConfig({
         head: {
             charset: 'utf-8',
             viewport: 'width=device-width, initial-scale=1',
+            // @ts-ignore
             title: 'Макропринт',
         }
     },
@@ -28,6 +29,7 @@ export default defineNuxtConfig({
         "@nuxtjs/seo"
     ],
     ui: {
+        // @ts-ignore
       icons: {}
     },
     colorMode: {

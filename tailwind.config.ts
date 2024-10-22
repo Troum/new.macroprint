@@ -4,7 +4,7 @@ export default <Partial<Config>>{
   plugins: [
       iconsPlugin({
         collections: getIconCollections(['flowbite'])
-      })
+      }),
   ],
   theme: {
     listStyleType: {

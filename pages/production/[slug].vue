@@ -42,13 +42,13 @@ const links = computed((): any[] => {
 
 const product = computed(() => {
   return _.find(products.value, (item: any) => {
-    return item.slug.current === slug
+    return item?.slug?.current === slug
   })
 })
 
 const others = computed(() => {
   return products.value.filter((item: any) => {
-    return item.slug.current !== slug
+    return item?.slug?.current !== slug
   })
 })
 

@@ -34,15 +34,17 @@ onMounted(() =>{
 <template>
   <UCard
       :id="`card_material_${slug}`"
-      :ui="{base: 'relative', ring: 'ring-0', divide: 'divide-none', header: {base: 'relative min-h-[129px]', padding: 'p-0'}, footer: {base: 'absolute bottom-0 w-full'}}">
+      :ui="{base: 'relative', ring: 'ring-0', divide: 'divide-none', header: {base: material.materialImage ? 'relative min-h-[129px]' : '', padding: 'p-0'}, footer: {base: 'absolute bottom-0 w-full'}}">
     <template #header>
-      <div class="min-h-[200px] absolute top-0 left-0 right-0 bottom-0 rounded-sm">
-        <SanityImage :id="`card_material_image_${slug}`"
-                     bg="b2e4ff"
-                     fit="clip"
-                     class="mx-auto"
-                     :w="cardWidth" :asset-id="material.materialImage?.asset._ref"/>
-      </div>
+      <template v-if="material.materialImage">
+        <div class="min-h-[200px] absolute top-0 left-0 right-0 bottom-0 rounded-sm">
+          <SanityImage :id="`card_material_image_${slug}`"
+                       bg="b2e4ff"
+                       fit="clip"
+                       class="mx-auto"
+                       :w="cardWidth" :asset-id="material.materialImage?.asset._ref"/>
+        </div>
+      </template>
     </template>
     <template #default>
       <client-only>

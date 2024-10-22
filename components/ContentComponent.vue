@@ -34,6 +34,13 @@ const SampleImageComponent = ({ value, isInline }: any) => {
 };
 
 const components: PortableTextComponents = {
+  block: {
+    h1: (_, { slots }) => h('h1', { class: 'text-2xl my-3' }, slots.default?.()),
+    h2: (_, { slots }) => h('h2', { class: 'text-xl my-3' }, slots.default?.()),
+    h3: (_, { slots }) => h('h3', { class: 'text-[18px] my-3' }, slots.default?.()),
+    blockquote: (_, { slots }) =>
+        h('blockquote', { class: 'my-3 pl-2 border-l-2 border-l-black-pearl-950' }, slots.default?.()),
+  },
   types: {
     image: SampleImageComponent,
     list: {
@@ -45,6 +52,7 @@ const components: PortableTextComponents = {
           h('li', { style: { listStyleType: 'mp-list__disc' } }, slots.default?.()),
     }
   },
+  hardBreak: () => true
 };
 </script>
 

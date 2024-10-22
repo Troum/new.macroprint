@@ -1,9 +1,8 @@
 export default defineAppConfig({
     ui: {
-        primary: 'black-pearl',
         strategy: 'override',
         icons: {
-          dynamic: true
+            dynamic: true
         },
         dropdown: {
             width: 'w-fit'
@@ -28,5 +27,5 @@ export default defineAppConfig({
                 outline: 'bg-[#f7f7f7] dark:bg-[#f7f7f7] ring-1 ring-gray-200',
             }
         }
-    }
+    } as any
 })
