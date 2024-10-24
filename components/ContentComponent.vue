@@ -4,6 +4,7 @@ import { type PortableTextBlock } from "@portabletext/types";
 import {getImageDimensions} from "@sanity/asset-utils";
 import urlBuilder from "@sanity/image-url";
 import {createClient} from "@sanity/client";
+import {useWindowSize} from "@vueuse/core";
 
 interface Props {
   content: PortableTextBlock[];
@@ -17,13 +18,13 @@ const SampleImageComponent = ({ value, isInline }: any) => {
   return h('img', {
     src: urlBuilder(client)
         .image(value)
-        .width(width)
+        .width((useWindowSize().width.value - 390) / 3)
         .auto('format')
         .url(),
     alt: value.alt || ' ',
     loading: 'lazy',
     style: {
-      display: 'inline-block',
+      display: isInline ? 'inline-block' : 'block',
       marginTop: '10px',
       marginBottom: '10px',
       marginRight: '20px',

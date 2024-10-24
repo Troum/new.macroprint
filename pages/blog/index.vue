@@ -22,7 +22,7 @@ const links = computed((): any[] => {
 const breadcrumbsStore = useBreadcrumbsStore()
 const updateBreadcrumbs = () => {
   const breadcrumbs = links.value.map(item => {
-    const slug = slugify(item.label).toLowerCase()
+    const slug = slugify(item.to).toLowerCase()
     const label = breadcrumbsList.breadcrumbs[slug]?.label
 
     return {
@@ -32,6 +32,7 @@ const updateBreadcrumbs = () => {
       current: item.current,
     }
   })
+
   breadcrumbsStore.setList(breadcrumbs)
 }
 useFetcher(publicationsQuery).then(response => {
@@ -45,11 +46,16 @@ definePageMeta({
 
 <template>
   <div class="mp-page">
+    <template v-if="publications && publications.length">
     <div class="mp-blog__container">
-      <template v-for="(publication, index) in publications" :key="index">
-        <PublicationCard :publication="publication"/>
-      </template>
+        <template v-for="(publication, index) in publications" :key="index">
+          <PublicationCard :publication="publication"/>
+        </template>
     </div>
+    </template>
+    <template v-else>
+      <h2 class="block text-center text-2xl mt-24">Записей в блоге пока нет</h2>
+    </template>
   </div>
 </template>
 

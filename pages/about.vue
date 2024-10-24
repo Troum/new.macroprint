@@ -23,7 +23,7 @@ useFetcher(productQuery)
     .then(response => {
       about.value = response.data?.value
       const breadcrumbs = links.value.map(item => {
-        const slug = slugify(item.label).toLowerCase()
+        const slug = slugify(item.to).toLowerCase()
         const label = breadcrumbsList.breadcrumbs[slug]?.label
 
         return {

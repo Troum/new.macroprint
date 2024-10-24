@@ -34,19 +34,26 @@ definePageMeta({
 
 <template>
   <div class="mp-page">
-    <div class="mp-vacancies__container bg-white">
-      <HeadingComponent heading="Список вакансий"/>
-      <client-only>
-        <UAccordion multiple
-                    :ui="{item: {base: 'bg-white mb-4', padding: 'p-4'}, default: {class: 'bg-black-pearl-950 rounded-sm mb-2 py-4 hover:bg-black-pearl-950 text-white', openIcon: 'i-heroicons-chevron-left-20-solid'}}"
-                    variant="solid"
-                    size="xl" :items="vacancies">
-          <template #item="{ item }">
-            <ContentComponent :content="item.content" />
-          </template>
-        </UAccordion>
-      </client-only>
-    </div>
+    <template v-if="vacancies && vacancies.length">
+      <div class="mp-vacancies__container bg-white">
+        <HeadingComponent heading="Список вакансий"/>
+        <client-only>
+          <UAccordion multiple
+                      :ui="{item: {base: 'bg-white mb-4', padding: 'p-4'}, default: {class: 'bg-black-pearl-950 rounded-sm mb-2 py-4 hover:bg-black-pearl-950 text-white', openIcon: 'i-heroicons-chevron-left-20-solid'}}"
+                      variant="solid"
+                      size="xl" :items="vacancies">
+            <template #item="{ item }">
+              <ContentComponent :content="item.content" />
+            </template>
+          </UAccordion>
+        </client-only>
+      </div>
+    </template>
+    <template v-else>
+      <h2 class="text-center text-2xl mt-24">
+        У компании пока нет новых вакансий
+      </h2>
+    </template>
   </div>
 </template>
 
