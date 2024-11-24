@@ -18,7 +18,7 @@ const SampleImageComponent = ({ value, isInline }: any) => {
   return h('img', {
     src: urlBuilder(client)
         .image(value)
-        .width((useWindowSize().width.value - 390) / 3)
+        .width((useWindowSize().width.value - 390) / 4)
         .auto('format')
         .url(),
     alt: value.alt || ' ',
