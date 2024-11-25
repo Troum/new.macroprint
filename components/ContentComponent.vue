@@ -24,7 +24,7 @@ const SampleImageComponent = ({ value, isInline }: any) => {
     alt: value.alt || ' ',
     loading: 'lazy',
     style: {
-      display: isInline ? 'inline-block' : 'block',
+      display: 'inline-block',
       marginTop: '10px',
       marginBottom: '10px',
       marginRight: '20px',
