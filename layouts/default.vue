@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import _ from "lodash"
 import {useRoute} from "vue-router";
 import {useBreakpoint} from "~/composables/useBreakpoint";
 import BreadcrumbsComponent from "~/components/BreadcrumbsComponent.vue";
@@ -7,15 +6,15 @@ import BreadcrumbsComponent from "~/components/BreadcrumbsComponent.vue";
 const isMain = computed(() => {
   return useRoute().name !== 'index'
 })
-const laptop = computed(() => {
-  return useBreakpoint().between('laptop', 'desktop')
+const mobile = computed(() => {
+  return useBreakpoint().between('mobile', 'tablet')
 })
 
 </script>
 
 <template>
   <div>
-    <template v-if="!laptop">
+    <template v-if="mobile">
 
     </template>
     <template v-else>
@@ -25,7 +24,7 @@ const laptop = computed(() => {
       <BreadcrumbsComponent />
     </template>
     <slot />
-    <template v-if="!laptop">
+    <template v-if="mobile">
 
     </template>
     <template v-else>
