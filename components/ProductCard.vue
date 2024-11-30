@@ -42,7 +42,7 @@ onMounted(() =>{
       </template>
       <template #default>
         <client-only>
-          <h3 class="capitalize font-bold mt-10 text-[16px] md:text-[24px]">{{ product.title }}</h3>
+          <h3 class="capitalize font-bold mt-4 lg:mt-10 text-[16px] md:text-[24px]">{{ product.title }}</h3>
           <p class="line-clamp-3">{{ product.preview_content }}</p>
         </client-only>
       </template>
