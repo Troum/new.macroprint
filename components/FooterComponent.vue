@@ -5,6 +5,8 @@ import {useFetcher} from "~/composables/useFetcher";
 import type {FooterInterface} from "~/interfaces/components/FooterInterface";
 import useTransforms from "~/composables/useTransforms";
 import {useCommonStore} from "~/store/common";
+import { useSocialNetworks } from "~/composables/useSocialNetworks";
+
 const commonStore = useCommonStore()
 const {transformSchedule} = useTransforms();
 const footer = ref<FooterInterface | any>()
@@ -17,8 +19,14 @@ const carouselQuery = groq`*[_type == "footer"][0]{
   }`;
 useFetcher(carouselQuery).then(response => {
   footer.value = response.data.value
-  commonStore.setAddress(footer.value.address)
-  commonStore.setContacts(footer.value.contacts)
+  if (footer.value) {
+    commonStore.setAddress(footer.value.address)
+    commonStore.setContacts(footer.value.contacts)
+  } else {
+    commonStore.setAddress(footer.value.address)
+    commonStore.setContacts(footer.value.contacts)
+  }
+
 })
 </script>
 

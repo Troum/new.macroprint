@@ -2,6 +2,7 @@
 import {onMounted, ref} from "vue";
 import type {PropType} from "vue";
 import type {ProductCardInterface} from "~/interfaces/components/ProductCardInterface";
+import {useBreakpoint} from "~/composables/useBreakpoint";
 
 const props = defineProps({
   product: {
@@ -9,10 +10,15 @@ const props = defineProps({
     required: true
   }
 })
-
+const {isMobile} = useBreakpoint()
 const cardWidth = ref<number>(200)
 const cardHeight = ref<number>(200)
-
+const iconSize = computed((): {w: number, h: number} => {
+  if (isMobile.value) {
+    return {w: 30, h: 30}
+  }
+  return {w: 60, h: 60}
+})
 onMounted(() =>{
   const card = document.getElementById(`card_${props.product.slug.current}`)
   const cardImage = document.getElementById(`card_image_${props.product.slug.current}`)
@@ -37,7 +43,7 @@ onMounted(() =>{
         </div>
         <div
             class="absolute flex items-center justify-center bg-punch-600 rounded-xl left-4 top-[calc(100%-80px)] md:top-[calc(100%-50px)] w-[60px] h-[60px] md:w-[100px] md:h-[100px]">
-          <SanityImage class="mx-auto" :asset-id="product.icon?.asset._ref" :w="30" :h="30"/>
+          <SanityImage class="mx-auto" :asset-id="product.icon?.asset._ref" :w="iconSize.w" :h="iconSize.h"/>
         </div>
       </template>
       <template #default>

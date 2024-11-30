@@ -3,18 +3,17 @@ import {useRoute} from "vue-router";
 import {useBreakpoint} from "~/composables/useBreakpoint";
 import BreadcrumbsComponent from "~/components/BreadcrumbsComponent.vue";
 
+const {isMobile} = useBreakpoint();
 const isMain = computed(() => {
   return useRoute().name !== 'index'
 })
-const mobile = computed(() => {
-  return useBreakpoint().between('mobile', 'tablet')
-})
+
 
 </script>
 
 <template>
   <div>
-    <template v-if="mobile">
+    <template v-if="isMobile">
 
     </template>
     <template v-else>
@@ -24,7 +23,7 @@ const mobile = computed(() => {
       <BreadcrumbsComponent />
     </template>
     <slot />
-    <template v-if="mobile">
+    <template v-if="isMobile">
 
     </template>
     <template v-else>

@@ -10,15 +10,16 @@ import ContentComponent from "~/components/ContentComponent.vue";
 import groq from "groq";
 import type {SlideInterface} from "~/interfaces/components/SlideInterface";
 import {useFetcher} from "~/composables/useFetcher";
-
+import { useBreakpoint } from "~/composables/useBreakpoint";
+const { isMobile } = useBreakpoint()
 const carouselSlider = ref()
 const {width, height} = useWindowSize()
 const newsSlider = ref()
 const type = computed(() => {
-  return width.value <= 576 ? 'crop' : 'fill'
+  return isMobile.value ? 'crop' : 'fill'
 })
 const itemHeight = computed((): number => {
-  if (type.value === 'crop') {
+  if (isMobile.value) {
     return 363
   }
   return Math.ceil(height.value * 0.43)
@@ -88,7 +89,7 @@ definePageMeta({
             <SanityImage bg="fff" :fit="type"  class="mx-auto z-[1]"
                          :w="width"
                          :h="itemHeight" :asset-id="item.slide.asset?._ref"></SanityImage>
-            <template v-if="!_.isUndefined(item.description)">
+            <template v-if="!_.isUndefined(item.description) && !isMobile">
               <div class="z-[2] absolute top-[40%] right-[5%] max-w-[25%] p-8 bg-black-pearl-950 text-gray-50">
                 <ContentComponent :content="item.description" />
               </div>

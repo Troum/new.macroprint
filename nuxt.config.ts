@@ -8,6 +8,7 @@ export default defineNuxtConfig({
             title: 'Макропринт',
         }
     },
+    ssr: false,
     devtools: {enabled: true},
     compatibilityDate: '2024-09-01',
     hooks: {
