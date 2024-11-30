@@ -37,7 +37,7 @@
     @apply grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 fhd:grid-cols-5 gap-6 auto-rows-[500px] px-[15px] lg:px-[165px] fhd:px-[275px] pb-8
   }
   .mp-news__container {
-    @apply px-[165px] fhd:px-[275px] py-8 bg-black-pearl-950 min-h-[420px]
+    @apply lg:px-[165px] fhd:px-[275px] py-8 bg-black-pearl-950 min-h-[420px]
   }
   .mp-blog__container {
     @apply grid grid-cols-4 px-[165px] fhd:px-[275px] py-8 min-h-[420px]
@@ -46,7 +46,7 @@
     @apply px-[165px] fhd:px-[275px] py-8 min-h-[420px]
   }
   .mp-materials__container {
-    @apply grid xl:grid-cols-2 fhd:grid-cols-3 gap-4 px-[165px] fhd:px-[275px] py-8 bg-[#f7f7f7] min-h-[420px]
+    @apply grid grid-cols-1 lg:grid-cols-2 fhd:grid-cols-3 gap-4 px-4 lg:px-[165px] fhd:px-[275px] py-8 bg-[#f7f7f7] min-h-[420px]
   }
   .mp-examples__container {
     @apply px-[165px] fhd:px-[275px] py-8 bg-black-pearl-950 min-h-[420px]
@@ -58,13 +58,13 @@
     @apply flex items-center justify-center flex-col gap-y-2 px-[165px] fhd:px-[275px] py-8
   }
   .mp-single_product__container {
-    @apply grid grid-cols-2 px-[165px] fhd:px-[275px] py-8
+    @apply lg:grid lg:grid-cols-2 lg:px-[165px] fhd:px-[275px] lg:py-8
   }
   .mp-single_product__carousel {
-    @apply w-[540px]
+    @apply w-screen lg:w-[540px]
   }
   .mp-breadcrumbs__container {
-    @apply flex justify-between flex-col items-start px-[165px] fhd:px-[275px] py-8
+    @apply flex justify-between flex-col items-start px-4 lg:px-[165px] fhd:px-[275px] py-8
   }
   .mp-contacts__container {
     @apply grid grid-cols-2 gap-x-10 px-[165px] fhd:px-[275px] py-8 bg-[#f7f7f7]

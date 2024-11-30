@@ -27,9 +27,9 @@ const menu = [
 ]
 </script>
 <template>
-  <div class="flex flex-col gap-y-4">
+  <div class="flex flex-col gap-y-1 lg:gap-y-4">
     <template v-for="item of menu">
-      <RouterLink class="text-punch-600" :to="item.route">{{ item.name }}</RouterLink>
+      <RouterLink class="text-punch-600 text-[12px] lg:text-[14px]" :to="item.route">{{ item.name }}</RouterLink>
     </template>
   </div>
 </template>

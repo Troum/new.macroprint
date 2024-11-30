@@ -10,9 +10,10 @@ import {useWindowSize} from "@vueuse/core";
 import {useBreadcrumbsStore} from "~/store/breadcrumbs";
 import slugify from "slugify";
 import * as breadcrumbsList from "@/locales/ru.json"
+import {useBreakpoint} from "~/composables/useBreakpoint";
 
 const {width, height} = useWindowSize()
-
+const { isMobile } = useBreakpoint()
 const {slug} = useRoute().params
 const productQuery = groq`*[_type == "product"]{
     title,
@@ -30,9 +31,15 @@ const products = ref<ProductCardInterface[] | any>()
 const breadcrumbsStore = useBreadcrumbsStore()
 
 const calculatedWidth = computed(() => {
+  if (isMobile.value) {
+    return width.value;
+  }
   return Math.ceil((width.value * 540) / 1920)
 })
 const calculatedHeight = computed(() => {
+  if (isMobile.value) {
+    return 345;
+  }
   return Math.ceil((height.value * 540) / 1080)
 })
 
@@ -97,7 +104,7 @@ useFetcher(productQuery)
         </vueper-slides>
       </div>
       <template v-if="product">
-        <div>
+        <div class="p-4 lg:p-2">
           <ContentComponent :content="product?.main_content"/>
         </div>
       </template>
