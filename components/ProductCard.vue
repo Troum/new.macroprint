@@ -36,13 +36,13 @@ onMounted(() =>{
           <SanityImage :id="`card_image_${product.slug.current}`" bg="b2e4ff" fit="clip" class="mx-auto" :w="cardWidth" :asset-id="product.preview_image?.asset._ref"/>
         </div>
         <div
-            class="absolute flex items-center justify-center bg-punch-600 rounded-xl left-4 top-[calc(100%-50px)] w-[100px] h-[100px]">
-          <SanityImage class="mx-auto" :asset-id="product.icon?.asset._ref" :w="60" :h="60"/>
+            class="absolute flex items-center justify-center bg-punch-600 rounded-xl left-4 top-[calc(100%-80px)] md:top-[calc(100%-50px)] w-[60px] h-[60px] md:w-[100px] md:h-[100px]">
+          <SanityImage class="mx-auto" :asset-id="product.icon?.asset._ref" :w="30" :h="30"/>
         </div>
       </template>
       <template #default>
         <client-only>
-          <h3 class="capitalize font-bold mt-10 text-[24px]">{{ product.title }}</h3>
+          <h3 class="capitalize font-bold mt-10 text-[16px] md:text-[24px]">{{ product.title }}</h3>
           <p class="line-clamp-3">{{ product.preview_content }}</p>
         </client-only>
       </template>

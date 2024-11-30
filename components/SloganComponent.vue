@@ -49,6 +49,9 @@ defineProps({
       padding: 10px;
       top: 50%;
       transform: translateY(-50%);
+      @media (max-width: 576px) {
+        left: 11px;
+      }
       @media (min-width: 1920px) {
         left: 265px;
       }

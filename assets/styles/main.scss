@@ -34,7 +34,7 @@
     @apply overflow-hidden absolute top-0 left-0 right-0 bottom-0
   }
   .mp-cards__container {
-    @apply grid grid-cols-4 fhd:grid-cols-5 gap-6 auto-rows-[500px] px-[165px] fhd:px-[275px] pb-8
+    @apply grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 fhd:grid-cols-5 gap-6 auto-rows-[500px] px-[15px] lg:px-[165px] fhd:px-[275px] pb-8
   }
   .mp-news__container {
     @apply px-[165px] fhd:px-[275px] py-8 bg-black-pearl-950 min-h-[420px]

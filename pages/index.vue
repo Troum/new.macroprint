@@ -14,7 +14,13 @@ import {useFetcher} from "~/composables/useFetcher";
 const carouselSlider = ref()
 const {width, height} = useWindowSize()
 const newsSlider = ref()
+const type = computed(() => {
+  return width.value <= 576 ? 'crop' : 'fill'
+})
 const itemHeight = computed((): number => {
+  if (type.value === 'crop') {
+    return 363
+  }
   return Math.ceil(height.value * 0.43)
 })
 const page = ref<number>(0)
@@ -79,7 +85,9 @@ definePageMeta({
       <div class="mp-carousel__wrapper" :style="`height: ${itemHeight}px`">
         <UCarousel v-model="page" v-slot="{ item }" :items="carousel?.slides" class="mp-carousel">
           <div class="relative">
-            <SanityImage bg="fff" fit="fill" class="mx-auto z-[1]" :w="width" :h="itemHeight" :asset-id="item.slide.asset?._ref"></SanityImage>
+            <SanityImage bg="fff" :fit="type"  class="mx-auto z-[1]"
+                         :w="width"
+                         :h="itemHeight" :asset-id="item.slide.asset?._ref"></SanityImage>
             <template v-if="!_.isUndefined(item.description)">
               <div class="z-[2] absolute top-[40%] right-[5%] max-w-[25%] p-8 bg-black-pearl-950 text-gray-50">
                 <ContentComponent :content="item.description" />
