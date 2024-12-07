@@ -9,10 +9,6 @@ const menu = [
     route: '/blog'
   },
   {
-    name: 'Клиентам',
-    route: '/for-clients'
-  },
-  {
     name: 'О компании',
     route: '/about'
   },

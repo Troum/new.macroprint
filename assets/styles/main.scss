@@ -40,10 +40,10 @@
     @apply lg:px-[165px] fhd:px-[275px] py-8 bg-black-pearl-950 min-h-[420px]
   }
   .mp-blog__container {
-    @apply grid grid-cols-4 px-[165px] fhd:px-[275px] py-8 min-h-[420px]
+    @apply grid grid-cols-1 lg:grid-cols-4 px-4 lg:px-[165px] fhd:px-[275px] py-8 min-h-[420px]
   }
   .mp-blog-single__container, .mp-about__container, .mp-requisites__container {
-    @apply px-[165px] fhd:px-[275px] py-8 min-h-[420px]
+    @apply px-4 lg:px-[165px] fhd:px-[275px] py-8
   }
   .mp-materials__container {
     @apply grid grid-cols-1 lg:grid-cols-2 fhd:grid-cols-3 gap-4 px-4 lg:px-[165px] fhd:px-[275px] py-8 bg-[#f7f7f7] min-h-[420px]
@@ -52,7 +52,7 @@
     @apply px-[165px] fhd:px-[275px] py-8 bg-black-pearl-950 min-h-[420px]
   }
   .mp-vacancies__container {
-    @apply flex flex-col gap-y-4 items-center px-[165px] fhd:px-[275px] pb-8 bg-[#f7f7f7]
+    @apply flex flex-col gap-y-4 items-center px-4 lg:px-[165px] fhd:px-[275px] pb-8 bg-[#f7f7f7]
   }
   .mp-requirements__container {
     @apply flex items-center justify-center flex-col gap-y-2 px-[165px] fhd:px-[275px] py-8

@@ -2,9 +2,10 @@
 import {PortableText, type PortableTextComponents} from "@portabletext/vue";
 import { type PortableTextBlock } from "@portabletext/types";
 import {getImageDimensions} from "@sanity/asset-utils";
-import urlBuilder from "@sanity/image-url";
 import {createClient} from "@sanity/client";
 import {useWindowSize} from "@vueuse/core";
+import {useBreakpoint} from "~/composables/useBreakpoint";
+import urlBuilder from "@sanity/image-url";
 
 interface Props {
   content: PortableTextBlock[];
@@ -12,23 +13,23 @@ interface Props {
 
 defineProps<Props>()
 
+const { isMobile } = useBreakpoint()
 const SampleImageComponent = ({ value, isInline }: any) => {
   const { width, height } = getImageDimensions(value);
   const client = createClient({projectId: 'gtsnokwt', dataset: 'production', useCdn: true})
   return h('img', {
     src: urlBuilder(client)
         .image(value)
-        .width((1440 - 340) / 2)
+        .width(isMobile.value ? useWindowSize().width.value : useWindowSize().width.value / 4)
         .auto('format')
         .url(),
     alt: value.alt || ' ',
     loading: 'lazy',
     style: {
-      display: 'inline-block',
-      marginTop: '10px',
-      marginBottom: '10px',
-      marginRight: '20px',
-      float: 'left',
+      display: 'inline',
+      marginTop: '15px',
+      marginBottom: '15px',
+      marginRight: isMobile.value ? '' : '30px',
       aspectRatio: width / height,
     },
   });

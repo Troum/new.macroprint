@@ -5,6 +5,7 @@ import {useFetcher} from "~/composables/useFetcher";
 import {useBreadcrumbsStore} from "~/store/breadcrumbs";
 import slugify from "slugify";
 import * as breadcrumbsList from "@/locales/ru.json"
+import {useBreakpoint} from "~/composables/useBreakpoint";
 
 const productQuery = groq`*[_type == "about"][0]{
     info
